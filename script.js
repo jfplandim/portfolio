@@ -1,17 +1,21 @@
-var sections = document.querySelectorAll('section');
-var navLinks  = document.querySelectorAll('nav a');
+var sections = document.querySelectorAll('section')
+var navLinks  = document.querySelectorAll('nav a')
 
 window.addEventListener('scroll', function () {
-  var scrollY = window.scrollY;
-  var atualId = '';
+  var scrollY = window.scrollY
+  var atualId = ''
 
   sections.forEach(function (section) {
-    if (scrollY >= section.offsetTop - 80) {
-      atualId = section.id;
+    if (scrollY >= section.offsetTop - 100) {
+      atualId = section.id
     }
-  });
+  })
 
   navLinks.forEach(function (link) {
-    link.style.color = link.getAttribute('href') === '#' + atualId ? '#7ee8a2' : '';
-  });
-});
+    if (link.getAttribute('href') === '#' + atualId){
+      link.classList.add('ativo')
+    } else {
+      link.classList.remove('ativo')
+    }
+    })
+})
